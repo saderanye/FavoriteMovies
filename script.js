@@ -5,7 +5,7 @@ const movieList = document.getElementById('movieList');
 
 let movies = [];
 
-addBtn.addEventListener('click', function () {
+addBtn.addEventListener('click', function() {
     movies.push(inputMovie.value);
     inputMovie.value = '';
     renderMovies();
@@ -19,15 +19,13 @@ function renderMovies() {
 
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Remove';
-
-        removeBtn.addEventListener('click', () => {
-            movies.splice(index, 1);
-            renderMovies();
-        })
-
-        li.appendChild(removeBtn);
         
         movieList.appendChild(li);
     });
 };
 
+removeBtn.addEventListener('click', () => {
+    movies.splice(index, 1);
+    renderMovies();
+    li.appendChild(removeBtn);
+})
